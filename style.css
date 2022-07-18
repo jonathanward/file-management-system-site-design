@@ -1,0 +1,203 @@
+/* COLORS: https://www.happyhues.co/palettes/13 */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Heebo', sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 60px 1fr 40px;
+    grid-template-areas: 
+        "aside nav"
+        "aside main"
+        "aside footer";
+}
+
+nav ul, aside ul {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li, aside ul li {
+    list-style: none;
+    padding: 0 4%;
+}
+
+li a {
+    text-decoration: none;
+    color: #fffffe;
+    font-weight: bold;
+}
+
+li a:hover {
+    color: #e53170;
+}
+
+aside {
+    grid-area: aside;
+    background-color: #0f0e17;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
+    color: #fffffe;
+}
+
+aside img {
+    border-radius: 50%;
+    border: 2px solid #e53170;
+    width: 60%;
+}
+
+aside img:hover {
+    border: 2px solid #f25f4c;
+    cursor: pointer;
+}
+
+aside ul {
+    width: 70%;
+}
+
+aside ul li {
+    padding: 8% 0;
+    border-radius: 3px;
+    border-bottom: 1px solid #0f0e17;
+}
+
+aside ul li:hover {
+    background-color: #e53170;
+    border-bottom: 1px solid #e53170;
+    cursor: pointer;
+}
+
+nav {
+    grid-area: nav;
+    background-color: #2e2f3e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: content;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+main h2 {
+    color: #0f0e17;
+    font-weight: 900;
+}
+
+.block-container h2 {
+    color: #ff8906;
+    font-weight: 600;
+}
+
+main {
+    padding: 2%;
+    grid-area: main;
+    background-color: #fffffe;
+}
+
+.block-container {
+    display: flex;
+    flex-basis: 100%;
+}
+
+.file-container, .folder-container {
+    margin: 0 20px 20px 0;
+    flex-grow: 1;
+    background-color: #0f0e17;
+    border: 4px solid #0f0e17;
+    border-radius: 4px;
+    padding: 2%;
+}
+
+.file-container:hover, .folder-container:hover {
+    background-color: #ff8906;
+    border: 4px solid #ff8906;
+    cursor: pointer;
+}
+
+.file-container:hover h2, .folder-container:hover h2, .folder-container:hover .time-modified, .file-container:hover .time-modified {
+    color: #fffffe;
+}
+
+main p {
+    color: #fffffe;
+}
+
+footer {
+    background-color: #fffffe;
+    grid-area: footer;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    color: #2e2f3e;
+    font-weight: 300;
+}
+
+.time-modified {
+    text-transform: uppercase;
+    color: #a7a9be;
+    font-size: .8em;
+}
+
+@media screen and (max-width: 960px) {
+    .block-container {
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    body {
+        grid-template-columns: 200px;
+    }
+
+    .file-container, .folder-container {
+        margin: 0 10px 20px 0;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: 60px 1fr 1fr 40px;
+        grid-template-areas: 
+        "nav"
+        "aside"
+        "main"
+        "footer";
+    }
+
+    aside {
+        padding-bottom: 3%;
+    }
+
+    aside img {
+        width: 200px;
+    }
+
+    aside ul li {
+        padding: 2% 0;
+    }
+
+    nav ul li {
+        list-style: none;
+        padding: 0 .8em;
+    }
+
+    .file-container, .folder-container {
+        margin: 0 0px 20px 0;
+    }
+}
